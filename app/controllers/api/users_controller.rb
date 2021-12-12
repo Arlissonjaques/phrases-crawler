@@ -1,16 +1,16 @@
-class Api::UserController < ApplicationController
+class Api::UsersController < ApplicationController
   before_action :set_user
 
   def login
     if @user && @user.authenticate(user_params[:password])
       render json: { 
-        sucess: true, 
+        success: true, 
         access_token: token_generate(@user.id), 
         errors: [] 
       }, status: :ok
     else
       render json: { 
-        sucess: false, 
+        success: false, 
         access_token: '',
         errors: ['incorrect username or password'] 
       }, status: :not_found
