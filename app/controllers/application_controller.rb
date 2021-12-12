@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::API
-  before_action :authorized
 
   def token_generate(data)
     encode_token(data)
